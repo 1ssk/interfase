@@ -33,6 +33,14 @@ func Notify(s Sender) {
 		fmt.Println(err)
 		return
 	}
+
+	switch s.(type) {
+	case *Email:
+		fmt.Println("Message for email")
+	case *Phone:
+		phone := s.(*Phone)
+		fmt.Println(phone.Balance)
+	}
 	fmt.Println("Success")
 }
 
